@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>[KAPPA] Art4k1 — Прощание</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: radial-gradient(circle at 50% 20%, #1a1a2e 0%, #0d0d15 60%, #050508 100%);
+    color: #e6e6e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 700px;
+    width: 100%;
+    background: rgba(20, 20, 32, 0.75);
+    border: 1px solid rgba(140, 130, 200, 0.25);
+    border-radius: 16px;
+    padding: 50px 40px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 60px rgba(90, 70, 160, 0.15), inset 0 0 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 1.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tag {
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: 13px;
+    color: #7c6fb0;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+
+  .nick {
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .nick span {
+    color: #a78bfa;
+    font-weight: 600;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167,139,250,0.4), transparent);
+    margin: 30px 0;
+  }
+
+  p {
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: #cfcfd8;
+    margin-bottom: 18px;
+  }
+
+  .highlight {
+    color: #f0abfc;
+    font-weight: 500;
+  }
+
+  .lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(167,139,250,0.35);
+    color: #cfcfd8;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .lang-toggle:hover {
+    background: rgba(167,139,250,0.15);
+    color: #fff;
+  }
+
+  .signature {
+    text-align: right;
+    margin-top: 40px;
+    font-style: italic;
+    color: #999;
+  }
+
+  .signature b {
+    color: #f472b6;
+    font-style: normal;
+  }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 1px;
+  }
+
+  .glow-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #a78bfa;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 4px rgba(167,139,250,0.6);
+    animation: pulse 3s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <button class="lang-toggle" id="langBtn" onclick="toggleLang()">EN / RU</button>
+
+  <div class="tag">stug.io</div>
+  <h1 id="t-title">I'm leaving</h1>
+  <div class="nick" id="t-nick"><span>[KAPPA] Art4k1</span></div>
+
+  <div class="divider"></div>
+
+  <p id="t-p1">
+    Didn't want to post this in the general chat, so I figured it'd be calmer to leave it here.
+    I'm leaving stug.io. Not because I'm mad at anyone, not because of nerfs or updates — just time to be honest.
+  </p>
+
+  <p id="t-p2">
+    These past months the game stopped giving me what I originally came for.
+    <span class="highlight">Demoralization</span> built up slowly — barely noticeable at first, then harder to ignore.
+    I was logging in out of habit, not enjoyment. And habit is a bad reason to stay.
+  </p>
+
+  <p id="t-p3">
+    Plus plain old <span class="highlight">burnout</span>. When a game starts feeling like a job
+    instead of a break, that's a sign you can't ignore. And honestly,
+    <span class="highlight">real-life stuff</span> needs more of my attention right now than games do.
+  </p>
+
+  <div class="divider"></div>
+
+  <p id="t-p4">
+    Thanks to everyone I played with, fought alongside, stayed up late with in discord.
+    Special thanks to [KAPPA] — it was great being part of the team.
+  </p>
+
+  <div class="signature" id="t-sign">
+    — <b>Art4k1</b>
+  </div>
+
+  <div class="footer-note" id="t-footer">STUG.IO • GAME OVER</div>
+</div>
+
+<script>
+  const translations = {
+    ru: {
+      title: "Я ухожу",
+      nick: '<span>[KAPPA] Art4k1</span>',
+      p1: `Не хотел писать это в общий чат, поэтому решил оставить всё здесь — так спокойнее.
+        Я ухожу из stug.io. Не из-за обиды на кого-то, не из-за нёрфов или обновлений — просто пришло время сказать честно.`,
+      p2: `Последние месяцы игра перестала приносить то, ради чего я в неё пришёл.
+        <span class="highlight">Дизмораль</span> накапливалась постепенно — сначала незаметно, потом всё сильнее.
+        Заходил уже не ради удовольствия, а по привычке. А привычка — плохая причина оставаться.`,
+      p3: `Плюс банальное <span class="highlight">выгорание</span>. Когда игра начинает ощущаться как работа,
+        а не отдых — это сигнал, который нельзя игнорировать. И, если честно,
+        <span class="highlight">дела в реальной жизни</span> сейчас требуют больше внимания, чем игры.`,
+      p4: `Спасибо всем, с кем играл, с кем рубился, с кем сидел до ночи в дискорде.
+        Клану [KAPPA] — отдельное спасибо, было классно быть частью команды.`,
+      sign: '— <b>Art4k1</b>',
+      footer: "STUG.IO • GAME OVER"
+    },
+    en: {
+      title: "I'm leaving",
+      nick: '<span>[KAPPA] Art4k1</span>',
+      p1: `Didn't want to post this in the general chat, so I figured it'd be calmer to leave it here.
+        I'm leaving stug.io. Not because I'm mad at anyone, not because of nerfs or updates — just time to be honest.`,
+      p2: `These past months the game stopped giving me what I originally came for.
+        <span class="highlight">Demoralization</span> built up slowly — barely noticeable at first, then harder to ignore.
+        I was logging in out of habit, not enjoyment. And habit is a bad reason to stay.`,
+      p3: `Plus plain old <span class="highlight">burnout</span>. When a game starts feeling like a job
+        instead of a break, that's a sign you can't ignore. And honestly,
+        <span class="highlight">real-life stuff</span> needs more of my attention right now than games do.`,
+      p4: `Thanks to everyone I played with, fought alongside, stayed up late with in discord.
+        Special thanks to [KAPPA] — it was great being part of the team.`,
+      sign: '— <b>Art4k1</b>',
+      footer: "STUG.IO • GAME OVER"
+    }
+  };
+
+  let currentLang = "en";
+
+  function toggleLang() {
+    currentLang = currentLang === "ru" ? "en" : "ru";
+    const t = translations[currentLang];
+    document.getElementById("t-title").textContent = t.title;
+    document.getElementById("t-nick").innerHTML = t.nick;
+    document.getElementById("t-p1").innerHTML = t.p1;
+    document.getElementById("t-p2").innerHTML = t.p2;
+    document.getElementById("t-p3").innerHTML = t.p3;
+    document.getElementById("t-p4").innerHTML = t.p4;
+    document.getElementById("t-sign").innerHTML = t.sign;
+    document.getElementById("t-footer").textContent = t.footer;
+    document.getElementById("langBtn").textContent = currentLang === "ru" ? "RU / EN" : "EN / RU";
+  }
+</script>
+
+</body>
+</html>
